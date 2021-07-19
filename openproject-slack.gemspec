@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.version     = OpenProject::Slack::VERSION
   s.authors     = "OpenProject GmbH"
   s.email       = "info@openproject.org"
-  s.homepage    = "https://community.openproject.org/projects/slack"  # TODO check this URL
   s.summary     = 'OpenProject Slack'
   s.description = "Slack integration"
   s.license     = "FIXME" # e.g. "MIT" or "GPLv3"

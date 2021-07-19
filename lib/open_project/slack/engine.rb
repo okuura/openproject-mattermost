@@ -10,7 +10,7 @@ module OpenProject::Slack
 
     register(
       'openproject-slack',
-      author_url: 'https://openproject.org',
+      author_url: 'https://www.openproject.org',
       requires_openproject: '>= 10.0.0',
       settings: {
         default: {
