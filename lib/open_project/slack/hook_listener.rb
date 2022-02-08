@@ -79,7 +79,7 @@ class OpenProject::Slack::HookListener < OpenProject::Hook::Listener
     attachment[:text] = escape(journal.notes) if journal.notes.present?
 
     attachment[:fields] = journal.details.map do |key, changeset|
-      detail_to_hash(work_package, key, changeset)
+      detail_to_hash(work_package, String(key), changeset)
     end
 
     OpenProject::Slack::Notifier.say(
