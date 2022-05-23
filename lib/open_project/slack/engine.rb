@@ -11,7 +11,6 @@ module OpenProject::Slack
     register(
       'openproject-slack',
       author_url: 'https://www.openproject.org',
-      requires_openproject: '>= 10.0.0',
       settings: {
         default: {
           "enabled" => true,
@@ -29,7 +28,7 @@ module OpenProject::Slack
            if: ->(*) { User.current.admin? && ::OpenProject::Slack.enabled? }
     end
 
-    initializer 'slack.register_hooks' do
+    config.to_prepare do
       require 'open_project/slack/hook_listener'
     end
   end
