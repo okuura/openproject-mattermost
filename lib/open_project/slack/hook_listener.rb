@@ -61,8 +61,9 @@ class OpenProject::Slack::HookListener < OpenProject::Hook::Listener
       value: escape(work_package.watcher_users.join(', ')),
       short: true
     }
-
+    puts "work_package_after_create_before"
     OpenProject::Slack::Notifier.say text: message, attachments: [attachment], webhook_url: webhook_url
+    puts "work_package_after_create_after"
   end
 
   def work_package_after_update(context={})
@@ -82,11 +83,9 @@ class OpenProject::Slack::HookListener < OpenProject::Hook::Listener
       detail_to_hash(work_package, String(key), changeset)
     end
 
-    OpenProject::Slack::Notifier.say(
-      text: message,
-      attachments: [attachment],
-      webhook_url: webhook_url
-    )
+    puts "work_package_after_update_before"
+    OpenProject::Slack::Notifier.say text: message, attachments: [attachment], webhook_url: webhook_url
+    puts "work_package_after_update_after"
   end
 
   private
